@@ -1,0 +1,6 @@
+<a href="#" class="navlink-button"
+   data-bind="attr: { href: href, target: target, title: title }, click: onClick, css: { 'navlink-has-label': labelText() !== '', 'navlink-has-icon': hasIcon }"><!--
+   ko if: showImage --><img class="navlink-img" alt="" data-bind="attr: { src: imageUrl }, event: { error: onImageError }"><!-- /ko --><!--
+   ko if: faIcon() !== '' --><i class="navlink-fa" data-bind="css: faIcon"></i><!-- /ko --><!--
+   ko if: labelText() !== '' --><span class="navlink-label" data-bind="text: labelText"></span><!-- /ko
+--></a>

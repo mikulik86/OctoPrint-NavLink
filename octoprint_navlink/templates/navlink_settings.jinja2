@@ -1,0 +1,97 @@
+<h3>Nav Link</h3>
+<p>Adds a button with a link to the top navigation bar. The button previews your changes live; click <strong>Save</strong> to keep them.</p>
+
+<form class="form-horizontal" onsubmit="return false;">
+    <div class="control-group">
+        <label class="control-label" for="navlink-url">URL</label>
+        <div class="controls">
+            <input type="text" id="navlink-url" class="input-block-level" placeholder="http://192.168.1.50:8123"
+                   data-bind="value: cfg.url">
+            <span class="help-block">Where the button goes. Include <code>http://</code> or <code>https://</code>.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="navlink-label">Label</label>
+        <div class="controls">
+            <input type="text" id="navlink-label" class="input-medium" placeholder="optional"
+                   data-bind="value: cfg.label">
+            <span class="help-block">Text next to the icon. Leave empty for an icon-only button.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Icon</label>
+        <div class="controls">
+
+            <div class="navlink-icon-choice">
+                <label class="radio">
+                    <input type="radio" name="navlink-icon-type" value="fontawesome" data-bind="checked: cfg.icon_type"> Font Awesome icon
+                </label>
+                <div class="navlink-icon-options" data-bind="visible: cfg.icon_type() === 'fontawesome'">
+                    <div class="input-prepend">
+                        <span class="add-on"><i data-bind="css: cfg.icon"></i></span>
+                        <input type="text" id="navlink-icon" class="input-large" placeholder="fas fa-external-link-alt"
+                               data-bind="textInput: cfg.icon">
+                    </div>
+                    <span class="help-block">
+                        e.g. <code>fas fa-external-link-alt</code>, <code>fas fa-home</code>, <code>fas fa-video</code>,
+                        <code>fas fa-lightbulb</code>. Leave empty to show only the label.
+                        Browse icons at <a href="https://fontawesome.com/search?ic=free" target="_blank">fontawesome.com</a>.
+                    </span>
+                </div>
+            </div>
+
+            <div class="navlink-icon-choice">
+                <label class="radio">
+                    <input type="radio" name="navlink-icon-type" value="image" data-bind="checked: cfg.icon_type"> Uploaded image
+                </label>
+                <div class="navlink-icon-options" data-bind="visible: cfg.icon_type() === 'image'">
+                    <span class="navlink-preview" title="Preview at navbar size">
+                        <!-- ko if: hasImageFile -->
+                        <img id="navlink-icon-preview" alt="Uploaded icon" data-bind="attr: { src: imageUrl }">
+                        <!-- /ko -->
+                        <!-- ko ifnot: hasImageFile -->
+                        <span class="muted">no image</span>
+                        <!-- /ko -->
+                    </span>
+                    <input type="file" id="navlink-icon-file" class="hide"
+                           accept=".png,.jpg,.jpeg,.gif,.webp,.svg,.ico,image/png,image/jpeg,image/gif,image/webp,image/svg+xml,image/x-icon"
+                           data-bind="event: { change: fileSelected }">
+                    <button type="button" class="btn" id="navlink-upload-button"
+                            data-bind="click: chooseFile, enable: !uploading(), css: { disabled: uploading }">
+                        <i class="fas fa-upload" data-bind="visible: !uploading()"></i><i class="fas fa-spinner fa-spin" data-bind="visible: uploading"></i>
+                        <span data-bind="text: hasImageFile() ? 'Replace…' : 'Upload…'"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger" id="navlink-remove-button"
+                            data-bind="click: removeImage, visible: hasImageFile, enable: !uploading()">
+                        <i class="fas fa-trash-alt"></i> Remove
+                    </button>
+                    <div class="alert alert-error navlink-error" data-bind="visible: uploadError() !== '', text: uploadError"></div>
+                    <span class="help-block">
+                        PNG, JPG, GIF, WebP, SVG or ICO, up to 1 MB. Shown 20 px tall in the navbar; a square
+                        image or one with a transparent background looks best. The upload is stored right away;
+                        the Font Awesome icon is used until an image is uploaded.
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="navlink-tooltip">Tooltip</label>
+        <div class="controls">
+            <input type="text" id="navlink-tooltip" class="input-large" placeholder="optional"
+                   data-bind="value: cfg.tooltip">
+            <span class="help-block">Shown on hover. Defaults to the URL.</span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" id="navlink-new-tab" data-bind="checked: cfg.new_tab"> Open in a new tab
+            </label>
+        </div>
+    </div>
+</form>

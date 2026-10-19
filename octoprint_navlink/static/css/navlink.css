@@ -1,0 +1,57 @@
+/* Nav Link – navbar button */
+
+#navbar_plugin_navlink .navlink-img {
+    display: inline-block;
+    height: 20px;
+    width: auto;
+    max-width: 96px;
+    vertical-align: top;
+    object-fit: contain;
+}
+
+#navbar_plugin_navlink .navlink-has-icon .navlink-label {
+    margin-left: 6px;
+}
+
+/* Nav Link – settings page */
+
+#settings_plugin_navlink .navlink-icon-choice {
+    margin-bottom: 8px;
+}
+
+#settings_plugin_navlink .navlink-icon-choice > label.radio {
+    font-weight: bold;
+}
+
+#settings_plugin_navlink .navlink-icon-options {
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+#settings_plugin_navlink .navlink-preview {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 40px;
+    padding: 0 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #fff, #f2f2f2);
+}
+
+#settings_plugin_navlink .navlink-preview img {
+    height: 20px;
+    width: auto;
+    max-width: 96px;
+}
+
+#settings_plugin_navlink .navlink-preview .muted {
+    font-size: 12px;
+}
+
+#settings_plugin_navlink .navlink-error {
+    margin-top: 6px;
+}
