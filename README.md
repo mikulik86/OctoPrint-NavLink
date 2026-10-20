@@ -1,5 +1,7 @@
 # OctoPrint-NavLink
 
+> This plugin was created by [Claude](https://claude.ai), an AI assistant made by Anthropic.
+
 Adds a button with a link to OctoPrint's top navigation bar: to Home Assistant,
 a webcam stream, your NAS, the printer's manual, or anything else you open
 next to OctoPrint. URL, label, icon, tooltip and "open in new tab" are set in
